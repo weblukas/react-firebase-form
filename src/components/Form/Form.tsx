@@ -52,7 +52,7 @@ const Form: FC = () => {
                 placeholder="name"
                 name="username"
                 handleChange={(value) => fieldUpdate('username', value)}
-                valid={() => validators.username(formRef.current)}
+                valid={()=> validators.username(formRef.current)}
             />
             <Input
                 name="email"
