@@ -1,0 +1,11 @@
+$primary: rgb(76, 79, 84);
+
+
+.app {
+  color: $primary;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
