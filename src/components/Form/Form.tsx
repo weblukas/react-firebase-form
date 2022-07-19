@@ -4,6 +4,8 @@ import style from './Form.module.scss';
 import { collection, addDoc } from 'firebase/firestore';
 import { dataBase } from '../../firebase-config';
 import { validators } from '../../helpers/validation';
+import { useNavigate } from 'react-router-dom';
+
 
 const initialValue = {
     username: '',
@@ -13,6 +15,8 @@ const initialValue = {
 };
 
 const Form: FC = () => {
+
+    const navigate = useNavigate();
     const formRef = useRef(initialValue);
     const usersCollection = collection(dataBase, 'Users');
 
@@ -42,10 +46,11 @@ const Form: FC = () => {
         //     rePassword: formRef.current.rePassword,
         // };
         addUser(data);
+        navigate('/login')
     };
 
     return (
-        <form className={style.form} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={style.form}>
             <h2 className={style.formTitle}>Registration</h2>
             <Input
                 label="name"
